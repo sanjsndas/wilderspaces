@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Wilder Spaces</title>
+    <style>
+        /* --- RESET & VARIABLES (consistent with home) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-deep: #0B331A;
+            --primary-bright: #1E5631;
+            --accent-gold: #D4AF37;
+            --accent-light: #A9DFBF;
+            --text-dark: #2C3E50;
+            --text-light: #F4F6F6;
+            --bg-light: #FAFDFB;
+            --bg-card: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background-color: var(--primary-deep);
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-container h1 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .logo-container span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-bright) 100%);
+            color: var(--text-light);
+            padding: 80px 10% 60px;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-size: 42px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #E2E8F0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .privacy-paper {
+            background-color: var(--bg-card);
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .privacy-paper h3 {
+            color: var(--primary-deep);
+            font-size: 24px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #E8ECEF;
+            padding-bottom: 8px;
+        }
+
+        .privacy-paper h4 {
+            color: var(--primary-bright);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .privacy-paper p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #2C3E50;
+        }
+
+        .privacy-paper ul, .privacy-paper ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .privacy-paper li {
+            margin-bottom: 8px;
+        }
+
+        .privacy-paper strong {
+            color: var(--primary-deep);
+        }
+
+        .highlight-box {
+            background: #F4F9F5;
+            padding: 25px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-gold);
+            margin: 30px 0;
+        }
+
+        .footer-meta {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #DFE6E9;
+            font-size: 14px;
+            color: #7F8C8D;
+        }
+
+        /* --- FOOTER (same as home) --- */
+        footer {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 50px 10%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #7F8C8D;
+        }
+
+        @media (max-width: 968px) {
+            .container { width: 92%; padding: 30px 0; }
+            .privacy-paper { padding: 30px 20px; }
+            .footer-content { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Wilder<span>Spaces</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Privacy & Data Protection</h2>
+        <p>Your trust is the foundation of our relationship. This policy outlines how we collect, process, and safeguard your personal information.</p>
+    </section>
+
+    <main class="container">
+        <div class="privacy-paper">
+            <h3>1. Introduction: Our Commitment to Privacy</h3>
+            <p>Wilder Spaces LLC (“Wilder Spaces,” “we,” “us,” or “our”) operates with an unwavering commitment to protecting the privacy and security of every individual who interacts with our brand, whether through our website, on-site consultations, or any of our professional landscape architecture services. We believe that transparency is not merely a legal obligation but a fundamental component of the trusted relationships we cultivate with property owners, estate managers, and commercial partners. This Privacy Policy is designed to provide you with a clear, comprehensive understanding of how we collect, use, share, and safeguard your personally identifiable information (PII) and non-personal data across all our digital and physical touchpoints.</p>
+            <p>We recognize that your personal information—from contact details and property addresses to financial transaction records—is sensitive and valuable. As a premium provider of ecological turf management and landscape architecture, we have structured our data governance frameworks to exceed industry standards and align with global best practices, including the principles of the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA), regardless of your geographic location. This policy applies to all visitors of our website, clients, prospective clients, vendors, and any other individuals who engage with our services.</p>
+            <p>By using our services or interacting with our digital platforms, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of our services and website. We reserve the right to update this policy periodically to reflect changes in technology, legal requirements, or our operational practices. We will post any changes on this page and encourage you to review it regularly. Your continued interaction with Wilder Spaces after such modifications constitutes your acceptance of the updated terms.</p>
+
+            <h3>2. Information We Collect: Categories and Sources</h3>
+            <p>To deliver our bespoke landscape solutions and ensure a seamless client experience, we collect various categories of personal data. These are gathered directly from you, through your interactions with our team, and from automated technologies when you use our website or mobile applications. We have categorized our data collection practices to provide granular transparency:</p>
+
+            <h4>2.1 Directly Provided Information</h4>
+            <p>When you engage with Wilder Spaces—whether by booking an estate assessment, subscribing to our seasonal newsletter, requesting a quote, or contacting our concierge team—you voluntarily provide us with specific personal information. This typically includes:</p>
+            <ul>
+                <li><strong>Contact and Identity Data:</strong> Full name, professional title, company name (if applicable), email address, telephone numbers, and postal address (including property location).</li>
+                <li><strong>Property and Project Data:</strong> Details about your estate, including property dimensions, soil conditions, existing flora, irrigation systems, and any specific landscaping goals or challenges you wish to address.</li>
+                <li><strong>Financial and Transactional Data:</strong> Payment card information, bank account details, billing addresses, and transaction history for services rendered. This information is processed securely through our PCI-compliant payment processors.</li>
+                <li><strong>Communication Data:</strong> Records of your correspondence with our team, including emails, phone call transcripts (with consent), and notes from in-person consultations.</li>
+            </ul>
+
+            <h4>2.2 Automatically Collected Data (Digital Platforms)</h4>
+            <p>When you visit our website, we utilize cookies, web beacons, and similar tracking technologies to collect non-personally identifiable information. This helps us optimize user experience and improve our digital offerings. Automatically collected data includes:</p>
+            <ul>
+                <li><strong>Technical Data:</strong> IP address, browser type and version, operating system, device type, screen resolution, and language preferences.</li>
+                <li><strong>Usage Data:</strong> Pages visited, time spent on each page, clickstream data, referral sources (e.g., search engines, social media), and interaction patterns with our content.</li>
+                <li><strong>Location Data:</strong> Approximate geographic location derived from your IP address, which we use to tailor regional content and service availability.</li>
+            </ul>
+
+            <h4>2.3 Information from Third Parties</h4>
+            <p>In certain circumstances, we may receive personal data about you from third-party sources to complement our records and enhance service delivery. These sources include:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> Payment processors, mapping services, and analytics platforms that provide aggregated insights.</li>
+                <li><strong>Public Databases:</strong> Property records and land registry data that help us assess your estate’s characteristics.</li>
+                <li><strong>Referral Partners:</strong> Architects, real estate agents, or property management companies who may refer you to our services with your consent.</li>
+            </ul>
+
+            <h3>3. How We Use Your Information: Purposes and Legal Bases</h3>
+            <p>We process your personal data for specific, legitimate purposes that are necessary to fulfill our contractual obligations, comply with legal duties, and pursue our legitimate business interests. Below, we outline the primary uses of your information and the legal bases that authorize such processing:</p>
+
+            <h4>3.1 Service Delivery and Client Management</h4>
+            <p><strong>Purpose:</strong> To provide the landscape architecture and turf management services you have requested, including scheduling consultations, executing mowing and maintenance plans, and managing your account.</p>
+            <p><strong>Legal Basis:</strong> Performance of a contract with you (or steps taken at your request prior to entering into a contract).</p>
+
+            <h4>3.2 Communication and Client Support</h4>
+            <p><strong>Purpose:</strong> To respond to your inquiries, provide updates about your service schedule, send appointment reminders, and deliver post-service follow-ups.</p>
+            <p><strong>Legal Basis:</strong> Legitimate interest in maintaining effective communication with our clients and ensuring high satisfaction levels.</p>
+
+            <h4>3.3 Marketing and Promotional Activities</h4>
+            <p><strong>Purpose:</strong> To send you seasonal tips, educational content about turf health, invitations to exclusive events, and information about new services. We only send marketing communications with your explicit consent, which you may withdraw at any time.</p>
+            <p><strong>Legal Basis:</strong> Your consent (opt-in) for electronic marketing; legitimate interest for direct mail or phone marketing where permitted by law.</p>
+
+            <h4>3.4 Website Improvement and Analytics</h4>
+            <p><strong>Purpose:</strong> To analyze how visitors interact with our website, identify areas for improvement, and personalize your browsing experience.</p>
+            <p><strong>Legal Basis:</strong> Legitimate interest in optimizing our digital presence and understanding user behavior to better serve our audience.</p>
+
+            <h4>3.5 Legal Compliance and Risk Management</h4>
+            <p><strong>Purpose:</strong> To comply with applicable laws, regulations, and legal processes, including tax reporting, fraud prevention, and responding to lawful requests from public authorities.</p>
+            <p><strong>Legal Basis:</strong> Compliance with a legal obligation to which we are subject.</p>
+
+            <div class="highlight-box">
+                <p><strong>Important Note on Data Minimization:</strong> We adhere to the principle of data minimization. We only collect and process personal data that is strictly necessary for the purposes outlined above. When you no longer require our services, we will securely delete or anonymize your data, subject to legal retention requirements.</p>
+            </div>
+
+            <h3>4. Data Sharing and Disclosure: When and Why We Share</h3>
+            <p>Wilder Spaces does not sell, trade, or rent your personal information to third parties for their own marketing purposes. However, we may share your data in the following limited circumstances to facilitate our services and meet legal obligations:</p>
+            <ul>
+                <li><strong>Service Providers and Partners:</strong> We engage trusted third-party vendors to perform functions on our behalf, such as payment processing (Stripe, Square), customer relationship management (CRM) systems, email delivery platforms, and analytics services (Google Analytics). These providers are contractually obligated to process your data only as instructed by Wilder Spaces and to implement robust security measures.</li>
+                <li><strong>Professional Advisors:</strong> We may share information with our legal counsel, accountants, auditors, and insurance providers to manage our business affairs and ensure compliance.</li>
+                <li><strong>Corporate Transactions:</strong> In the event of a merger, acquisition, restructuring, or sale of assets, your personal data may be transferred to the acquiring entity, provided that the new entity adheres to privacy protections comparable to those outlined in this policy.</li>
+                <li><strong>Legal Obligations and Safety:</strong> We may disclose your information if required by law, court order, or government regulation, or if we believe such disclosure is necessary to protect the rights, property, or safety of Wilder Spaces, our clients, or others.</li>
+            </ul>
+
+            <h3>5. International Data Transfers</h3>
+            <p>As a global brand, Wilder Spaces operates across multiple jurisdictions. Your personal data may be transferred to, stored, and processed in countries other than your country of residence, including the United States, where our primary servers and headquarters are located. These jurisdictions may have data protection laws that differ from those in your home country. We ensure that any international transfer of personal data is protected by appropriate safeguards, such as Standard Contractual Clauses approved by the European Commission, or by relying on the recipient’s participation in the EU-U.S. Data Privacy Framework (where applicable). By providing your information, you consent to such transfers and processing in accordance with this policy.</p>
+
+            <h3>6. Data Retention: How Long We Keep Your Information</h3>
+            <p>We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, including satisfying any legal, accounting, or reporting requirements. The retention period varies depending on the nature of the data and the applicable legal obligations:</p>
+            <ul>
+                <li><strong>Client Records:</strong> We maintain records of your engagement with us for the duration of our professional relationship and for a period of up to seven (7) years after the conclusion of services to comply with tax, regulatory, and contractual obligations.</li>
+                <li><strong>Marketing Data:</strong> If you opt in to receive marketing communications, we retain your contact details and preferences until you unsubscribe or request deletion.</li>
+                <li><strong>Website Analytics:</strong> Aggregated and anonymized analytics data is retained indefinitely for trend analysis, but individual IP addresses and user identifiers are anonymized or deleted after 14 months.</li>
+            </ul>
+            <p>When personal data is no longer required, we securely destroy or anonymize it using industry-standard methods to prevent unauthorized access or use.</p>
+
+            <h3>7. Your Rights: Control Over Your Personal Information</h3>
+            <p>We respect your right to access, correct, and control your personal data. Depending on your jurisdiction, you may have the following rights under applicable data protection laws (e.g., GDPR, CCPA, and others):</p>
+            <ul>
+                <li><strong>Right to Access:</strong> You have the right to request a copy of the personal data we hold about you.</li>
+                <li><strong>Right to Rectification:</strong> You can request correction of inaccurate or incomplete data.</li>
+                <li><strong>Right to Erasure (“Right to be Forgotten”):</strong> Under certain circumstances, you can request deletion of your personal data.</li>
+                <li><strong>Right to Restriction of Processing:</strong> You may ask us to restrict processing of your data under certain conditions.</li>
+                <li><strong>Right to Data Portability:</strong> You have the right to receive your personal data in a structured, commonly used, and machine-readable format and to transmit it to another controller.</li>
+                <li><strong>Right to Object:</strong> You can object to processing based on legitimate interests or direct marketing.</li>
+                <li><strong>Right to Withdraw Consent:</strong> If we rely on your consent for processing, you may withdraw it at any time without affecting the lawfulness of processing before withdrawal.</li>
+            </ul>
+            <p>To exercise any of these rights, please contact our Data Protection Officer (DPO) at <strong>privacy@wilderspaces.domain</strong> or via mail at the address provided below. We will respond to your request within 30 days, free of charge, unless it is manifestly unfounded or excessive. We may require proof of identity to protect your privacy.</p>
+
+            <h3>8. Cookies and Tracking Technologies: Enhancing Your Experience</h3>
+            <p>Our website uses cookies—small text files stored on your device—to improve functionality, analyze traffic, and personalize content. We categorize cookies as follows:</p>
+            <ul>
+                <li><strong>Strictly Necessary Cookies:</strong> Essential for navigation, security, and core functionalities (e.g., session management). Cannot be disabled.</li>
+                <li><strong>Performance Cookies:</strong> Collect anonymized data on page views, bounce rates, and interactions to help us improve site performance (e.g., Google Analytics).</li>
+                <li><strong>Functional Cookies:</strong> Remember your preferences (e.g., language, region) to enhance your user experience.</li>
+                <li><strong>Targeting/Advertising Cookies:</strong> Used to deliver relevant content and ads based on your interests. We use these only with your explicit consent.</li>
+            </ul>
+            <p>You can manage your cookie preferences through our cookie consent banner or via your browser settings. Please note that blocking certain cookies may affect the functionality of our website.</p>
+
+            <h3>9. Security Measures: Protecting Your Data</h3>
+            <p>Wilder Spaces employs a multi-layered security strategy to safeguard your personal information against unauthorized access, disclosure, alteration, or destruction. Our security framework includes:</p>
+            <ul>
+                <li><strong>Encryption:</strong> All data transmitted between your browser and our website is encrypted using TLS (Transport Layer Security) protocols. Payment information is encrypted and tokenized.</li>
+                <li><strong>Access Controls:</strong> Strict role-based access controls limit internal access to personal data to only those employees who require it for their specific roles (e.g., client managers, billing staff).</li>
+                <li><strong>Regular Audits:</strong> We conduct periodic security assessments, vulnerability scans, and penetration testing to identify and address potential weaknesses.</li>
+                <li><strong>Employee Training:</strong> Our team undergoes mandatory privacy and security awareness training to ensure they handle your data responsibly.</li>
+                <li><strong>Incident Response Plan:</strong> We have a robust incident response protocol in place to quickly address any security breaches, with notification to affected individuals and regulatory authorities as required by law.</li>
+            </ul>
+            <p>While we strive for the highest level of security, no method of transmission over the Internet is 100% secure. We encourage you to protect your own data by using strong passwords and logging out of your account after each session.</p>
+
+            <h3>10. Children’s Privacy</h3>
+            <p>Our services are directed to adults and property owners, and we do not knowingly collect personal information from children under the age of 16. If we become aware that we have inadvertently collected data from a child, we will take immediate steps to delete such information from our records. Parents or guardians who believe their child has provided us with personal data should contact us at the address below.</p>
+
+            <h3>11. Third-Party Links and Services</h3>
+            <p>Our website may contain links to external sites, such as payment portals, social media platforms, or partner websites. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to review the privacy policies of any external site you visit, as they operate independently of Wilder Spaces.</p>
+
+            <h3>12. Policy Updates and Changes</h3>
+            <p>This Privacy Policy is effective as of <strong>June 26, 2026</strong>. We may update it periodically to reflect changes in our practices, legal requirements, or technology. The latest version will always be available on our website. We will notify you of any significant changes via email (if we have your contact information) or through a prominent notice on our website. Your continued use of our services after such updates constitutes your acceptance of the revised policy.</p>
+
+            <h3>13. Contact Us: Questions or Concerns</h3>
+            <p>Your privacy is important to us, and we are here to address any questions, concerns, or requests related to your personal data. Our dedicated Data Protection Officer (DPO) is available to assist you. Please reach out via:</p>
+            <ul>
+                <li><strong>Email:</strong> privacy@wilderspaces.domain</li>
+                <li><strong>Phone:</strong> +1 (555) 839-4537</li>
+                <li><strong>Mail:</strong> Attn: Data Protection Officer, Wilder Spaces LLC, 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Your Trust, Our Responsibility.</strong> At Wilder Spaces, we are committed to not only cultivating exceptional landscapes but also to nurturing a relationship of trust with every client. This Privacy Policy reflects our dedication to transparency and your right to privacy. We are always evolving, and we value your feedback on how we can better serve you.</p>
+            </div>
+
+            <div class="footer-meta">
+                <p>Policy Version: 2.3. Last updated: June 26, 2026.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER (with address and phone) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Wilder Spaces LLC</h4>
+                <p>Setting the modern gold standard in residential estate turf engineering, architectural lawn manipulation, and custom ecological land management since 2004.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Information</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horticultural Headquarters</h4>
+                <p><strong>Address:</strong> 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</p>
+                <p><strong>Phone:</strong> +1 (555) 839-4537 (1-555-TEX-LAWN)</p>
+                <p><strong>Email:</strong> concierge@wilderspaces.domain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wilder Spaces LLC. All engineering and architectural rights reserved across domestic boundaries.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

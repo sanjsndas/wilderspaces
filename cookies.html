@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy | Wilder Spaces</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-deep: #0B331A;
+            --primary-bright: #1E5631;
+            --accent-gold: #D4AF37;
+            --accent-light: #A9DFBF;
+            --text-dark: #2C3E50;
+            --text-light: #F4F6F6;
+            --bg-light: #FAFDFB;
+            --bg-card: #FFFFFF;
+            --cookie-bg: #1a2a1f;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(100px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background-color: var(--primary-deep);
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-container h1 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .logo-container span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-bright) 100%);
+            color: var(--text-light);
+            padding: 80px 10% 60px;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-size: 42px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #E2E8F0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .cookies-paper {
+            background-color: var(--bg-card);
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .cookies-paper h3 {
+            color: var(--primary-deep);
+            font-size: 24px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #E8ECEF;
+            padding-bottom: 8px;
+        }
+
+        .cookies-paper h4 {
+            color: var(--primary-bright);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .cookies-paper p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #2C3E50;
+        }
+
+        .cookies-paper ul, .cookies-paper ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .cookies-paper li {
+            margin-bottom: 8px;
+        }
+
+        .cookies-paper strong {
+            color: var(--primary-deep);
+        }
+
+        .highlight-box {
+            background: #F4F9F5;
+            padding: 25px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-gold);
+            margin: 30px 0;
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .cookie-table th {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .cookie-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E8ECEF;
+        }
+
+        .cookie-table tr:nth-child(even) {
+            background-color: #F8FAF9;
+        }
+
+        .footer-meta {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #DFE6E9;
+            font-size: 14px;
+            color: #7F8C8D;
+        }
+
+        /* --- COOKIE CONSENT DIALOGUE BOX --- */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--cookie-bg);
+            color: var(--text-light);
+            padding: 20px 10%;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 -5px 30px rgba(0,0,0,0.3);
+            animation: slideUp 0.6s ease-out;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .cookie-consent p {
+            flex: 2;
+            min-width: 250px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #E2E8F0;
+        }
+
+        .cookie-consent p a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .cookie-consent p a:hover {
+            color: #F3CD44;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 10px 28px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cookie-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .cookie-btn-accept {
+            background-color: var(--accent-gold);
+            color: var(--primary-deep);
+        }
+
+        .cookie-btn-accept:hover {
+            background-color: #F3CD44;
+        }
+
+        .cookie-btn-decline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid #7F8C8D;
+        }
+
+        .cookie-btn-decline:hover {
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .cookie-btn-settings {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .cookie-btn-settings:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 50px 10% 30px;
+            font-size: 14px;
+            margin-bottom: 80px; /* space for cookie bar */
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #7F8C8D;
+        }
+
+        @media (max-width: 968px) {
+            .container { width: 92%; padding: 30px 0; }
+            .cookies-paper { padding: 30px 20px; }
+            .footer-content { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+            .cookie-consent { flex-direction: column; text-align: center; padding: 20px 5%; }
+            .cookie-buttons { justify-content: center; }
+            .cookie-table { font-size: 12px; }
+            .cookie-table th, .cookie-table td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Wilder<span>Spaces</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Cookie Policy</h2>
+        <p>Understanding how we use cookies to enhance your experience and protect your privacy is essential. This policy explains everything you need to know.</p>
+    </section>
+
+    <main class="container">
+        <div class="cookies-paper">
+            <h3>1. Introduction: What Are Cookies?</h3>
+            <p>Cookies are small text files that are stored on your device (computer, tablet, smartphone) when you visit a website. They are widely used to make websites work more efficiently, enhance user experience, and provide valuable information to website operators. Cookies are not harmful—they cannot carry viruses or malware, and they cannot access your hard drive.</p>
+            <p>At Wilder Spaces, we use cookies and similar tracking technologies (such as web beacons, pixels, and local storage) to understand how visitors interact with our website, remember your preferences, and deliver a personalized experience. This Cookie Policy explains what types of cookies we use, why we use them, and how you can control your preferences.</p>
+            <p>By using our website, you consent to our use of cookies in accordance with this policy, except where you have configured your browser to refuse cookies or where you have explicitly declined cookies through our consent mechanism. We are committed to transparency and giving you control over your data.</p>
+
+            <h3>2. Types of Cookies We Use</h3>
+            <p>We categorize cookies based on their purpose, duration, and the party that sets them. Below is a detailed breakdown of the cookies we deploy across our digital platforms:</p>
+
+            <h4>2.1 Strictly Necessary Cookies (Essential)</h4>
+            <p>These cookies are fundamental to the operation of our website. They enable core functionalities such as secure login, session management, and navigation. Without these cookies, our website would not function properly, and you would not be able to use essential features. These cookies do not collect personal data for marketing purposes and are typically set in response to your actions, such as setting privacy preferences, logging in, or filling out forms.</p>
+            <ul>
+                <li><strong>Examples:</strong> Session ID cookies, CSRF protection tokens, load-balancing cookies.</li>
+                <li><strong>Duration:</strong> Usually session-based (deleted when you close your browser) or short-term (a few hours).</li>
+                <li><strong>Opt-out:</strong> Not possible while using our website, as they are essential for basic functionality.</li>
+            </ul>
+
+            <h4>2.2 Performance and Analytics Cookies</h4>
+            <p>These cookies allow us to measure and improve the performance of our website by collecting aggregated information about how visitors interact with our content. We use tools like Google Analytics to track metrics such as page views, bounce rates, session duration, and user flows. All data is anonymized and aggregated—we do not use these cookies to identify you individually.</p>
+            <ul>
+                <li><strong>Examples:</strong> _ga, _gid, _gat (Google Analytics cookies).</li>
+                <li><strong>Duration:</strong> Persistent (up to 2 years for _ga) with periodic updates.</li>
+                <li><strong>Opt-out:</strong> You can opt out of Google Analytics tracking by installing the Google Analytics Opt-out Browser Add-on or by adjusting your cookie preferences.</li>
+            </ul>
+
+            <h4>2.3 Functional and Preference Cookies</h4>
+            <p>These cookies remember your preferences and choices to enhance your browsing experience. For example, they can remember your language preference, region, or font size, so you don't have to reset them on each visit. They also enable features like remembering your login status for a seamless experience.</p>
+            <ul>
+                <li><strong>Examples:</strong> Language selection cookies, region-specific content cookies.</li>
+                <li><strong>Duration:</strong> Persistent (typically 3-12 months).</li>
+                <li><strong>Opt-out:</strong> You can disable these cookies, but some features may not work as smoothly.</li>
+            </ul>
+
+            <h4>2.4 Targeting and Advertising Cookies</h4>
+            <p>We use these cookies to deliver relevant advertisements and promotional content that align with your interests. They may be set by us or by third-party advertising partners (e.g., Google Ads, Meta). These cookies track your browsing behavior across different websites and build a profile of your interests. We use them only with your explicit consent.</p>
+            <ul>
+                <li><strong>Examples:</strong> Google AdSense cookies, remarketing pixels.</li>
+                <li><strong>Duration:</strong> Persistent (typically up to 90 days or longer).</li>
+                <li><strong>Opt-out:</strong> You can decline these cookies or manage your ad preferences through platforms like Google Ad Settings.</li>
+            </ul>
+
+            <h4>2.5 Third-Party Cookies</h4>
+            <p>Some cookies on our website are set by third-party services that we integrate to enhance our offerings. These include social media plugins (e.g., LinkedIn, Instagram), video embedding (e.g., YouTube), and mapping services (e.g., Google Maps). These third parties may set their own cookies to track your interactions with their content. We do not control these cookies, and we encourage you to review the privacy policies of those third parties.</p>
+
+            <h3>3. Detailed Cookie List</h3>
+            <p>Below is a comprehensive table listing the specific cookies we use, their purpose, duration, and category:</p>
+
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Cookie Name</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>session_id</td>
+                        <td>Maintains user session and login state</td>
+                        <td>Session</td>
+                        <td>Strictly Necessary</td>
+                    </tr>
+                    <tr>
+                        <td>csrf_token</td>
+                        <td>Protects against cross-site request forgery</td>
+                        <td>Session</td>
+                        <td>Strictly Necessary</td>
+                    </tr>
+                    <tr>
+                        <td>_ga</td>
+                        <td>Google Analytics: distinguishes unique users</td>
+                        <td>2 years</td>
+                        <td>Performance/Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>Google Analytics: stores and updates unique session ID</td>
+                        <td>24 hours</td>
+                        <td>Performance/Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>_gat_gtag_UA_*</td>
+                        <td>Google Analytics: throttles request rate</td>
+                        <td>1 minute</td>
+                        <td>Performance/Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>lang_pref</td>
+                        <td>Remembers selected language preference</td>
+                        <td>12 months</td>
+                        <td>Functional/Preference</td>
+                    </tr>
+                    <tr>
+                        <td>region</td>
+                        <td>Remembers region for location-specific content</td>
+                        <td>6 months</td>
+                        <td>Functional/Preference</td>
+                    </tr>
+                    <tr>
+                        <td>cookie_consent</td>
+                        <td>Stores your cookie consent preferences</td>
+                        <td>12 months</td>
+                        <td>Strictly Necessary</td>
+                    </tr>
+                    <tr>
+                        <td>ads_user_id</td>
+                        <td>Used for targeted advertising (Google Ads)</td>
+                        <td>90 days</td>
+                        <td>Targeting/Advertising</td>
+                    </tr>
+                    <tr>
+                        <td>fb_pixel</td>
+                        <td>Meta (Facebook) remarketing and analytics</td>
+                        <td>180 days</td>
+                        <td>Targeting/Advertising</td>
+                    </tr>
+                    <tr>
+                        <td>youtube_embed</td>
+                        <td>YouTube video playback preferences</td>
+                        <td>Persistent</td>
+                        <td>Third-Party</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4. How We Use Cookies</h3>
+            <p>We use cookies for the following purposes:</p>
+            <ul>
+                <li><strong>Authentication and Security:</strong> To verify your identity, manage your session, and protect our website from fraudulent activity.</li>
+                <li><strong>Performance Optimization:</strong> To analyze site traffic, identify bottlenecks, and improve page load times.</li>
+                <li><strong>User Experience Personalization:</strong> To remember your preferences, such as language and region, to provide a tailored interface.</li>
+                <li><strong>Marketing and Remarketing:</strong> To display relevant advertisements based on your interests and track the effectiveness of our marketing campaigns.</li>
+                <li><strong>Social Media Integration:</strong> To enable sharing of content on social platforms and to track engagement with our social media presence.</li>
+                <li><strong>Legal Compliance:</strong> To record your consent for cookie use as required by data protection regulations (e.g., GDPR, ePrivacy Directive).</li>
+            </ul>
+
+            <h3>5. Your Control Over Cookies</h3>
+            <p>We respect your right to choose whether to accept or decline cookies. You have several options to manage your cookie preferences:</p>
+
+            <h4>5.1 Cookie Consent Dialogue Box</h4>
+            <p>When you first visit our website, you will see a cookie consent dialogue box at the bottom of the screen. This allows you to accept all cookies, decline non-essential cookies, or customize your preferences. You can change your preferences at any time by clicking the "Cookie Settings" link in the footer of our website.</p>
+
+            <h4>5.2 Browser Settings</h4>
+            <p>Most web browsers allow you to control cookies through their settings. You can choose to block all cookies, delete existing cookies, or set your browser to notify you before a cookie is stored. Please note that blocking essential cookies may impair the functionality of our website.</p>
+            <ul>
+                <li><strong>Google Chrome:</strong> Settings → Privacy and Security → Cookies and other site data.</li>
+                <li><strong>Mozilla Firefox:</strong> Options → Privacy & Security → Cookies and Site Data.</li>
+                <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data.</li>
+                <li><strong>Microsoft Edge:</strong> Settings → Cookies and site permissions → Manage and delete cookies and site data.</li>
+            </ul>
+
+            <h4>5.3 Third-Party Opt-Out Tools</h4>
+            <p>For advertising cookies, you can opt out of interest-based advertising through industry opt-out platforms such as:</p>
+            <ul>
+                <li><strong>YourAdChoices (NAI):</strong> optout.networkadvertising.org</li>
+                <li><strong>Digital Advertising Alliance (DAA):</strong> optout.aboutads.info</li>
+                <li><strong>Google Ad Settings:</strong> adssettings.google.com</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Your Privacy Matters:</strong> At Wilder Spaces, we believe that you should have full control over your digital footprint. Our cookie consent mechanism is designed to be clear, accessible, and respectful of your choices. You can change your preferences at any time.</p>
+            </div>
+
+            <h3>6. How Long Do Cookies Stay on My Device?</h3>
+            <p>Cookies have different lifespans depending on their type:</p>
+            <ul>
+                <li><strong>Session Cookies:</strong> These are temporary and are deleted from your device as soon as you close your browser. They are used for essential functionalities like session management.</li>
+                <li><strong>Persistent Cookies:</strong> These remain on your device for a predetermined period, ranging from a few days to several years. They are used to remember your preferences and for analytics purposes. The exact duration for each cookie is listed in the cookie table above.</li>
+                <li><strong>Third-Party Cookies:</strong> The lifespan of third-party cookies is determined by the third-party provider. We recommend reviewing their policies for specific details.</li>
+            </ul>
+            <p>You can manually delete cookies at any time through your browser settings. This will remove all cookies stored on your device, and you may need to reset your preferences on our website.</p>
+
+            <h3>7. Cookies and Personal Data</h3>
+            <p>We do not use cookies to collect personal data that can directly identify you, such as your name, email address, or phone number. However, some cookies (like analytics cookies) collect IP addresses, which may be considered personal data under certain regulations. We treat all data collected through cookies in accordance with our Privacy Policy and applicable laws.</p>
+            <p>We do not combine the data collected via cookies with other personal data we hold about you unless you have given your explicit consent to do so. For instance, if you complete a contact form, we may link your submitted information with the browsing data to better understand your interests and tailor our communication.</p>
+
+            <h3>8. Updates to This Cookie Policy</h3>
+            <p>We may update this Cookie Policy from time to time to reflect changes in technology, legal requirements, or our operational practices. We will notify you of any significant changes by posting the updated policy on this page with a revised effective date. We encourage you to review this policy periodically to stay informed about how we use cookies.</p>
+            <p>The current version of this policy is effective as of <strong>June 26, 2026</strong>. Please check back regularly for any updates.</p>
+
+            <h3>9. Contact Us About Cookies</h3>
+            <p>If you have any questions, concerns, or requests regarding our use of cookies, please do not hesitate to contact us. Our dedicated team is here to assist you:</p>
+            <ul>
+                <li><strong>Email:</strong> privacy@wilderspaces.domain</li>
+                <li><strong>Phone:</strong> +1 (555) 839-4537</li>
+                <li><strong>Mail:</strong> Wilder Spaces LLC, Attn: Data Protection Officer, 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</li>
+            </ul>
+            <p>We aim to respond to all inquiries within two (2) business days.</p>
+
+            <div class="highlight-box">
+                <p><strong>Transparency Builds Trust:</strong> We believe that clear communication about how we use cookies is essential to building and maintaining trust with our clients and visitors. We are committed to providing you with the information and tools you need to make informed choices about your privacy.</p>
+            </div>
+
+            <div class="footer-meta">
+                <p><strong>Effective Date:</strong> June 26, 2026. <strong>Version:</strong> 3.0.</p>
+                <p>This Cookie Policy is reviewed and updated regularly to ensure compliance with evolving privacy standards and regulations.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- COOKIE CONSENT DIALOGUE BOX -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p>
+            <strong>🍪 Cookie Preferences</strong> — We use cookies to enhance your experience, analyze site traffic, and deliver personalized content. By clicking "Accept All," you consent to our use of all cookies. You can manage your preferences or decline non-essential cookies at any time. Read our <a href="cookies.html">Cookie Policy</a> for more details.
+        </p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-settings" onclick="showSettings()">Settings</button>
+            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline Non-Essential</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Wilder Spaces LLC</h4>
+                <p>Setting the modern gold standard in residential estate turf engineering, architectural lawn manipulation, and custom ecological land management since 2004.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Information</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horticultural Headquarters</h4>
+                <p><strong>Address:</strong> 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</p>
+                <p><strong>Phone:</strong> +1 (555) 839-4537 (1-555-TEX-LAWN)</p>
+                <p><strong>Email:</strong> concierge@wilderspaces.domain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wilder Spaces LLC. All engineering and architectural rights reserved across domestic boundaries.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cookie consent functionality
+        function acceptCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            // In a real implementation, you would set a cookie here to remember the user's choice
+            console.log('Cookies accepted. All cookies enabled.');
+            // You could also store this preference in localStorage
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        function declineCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            // Disable non-essential cookies
+            console.log('Only essential cookies enabled.');
+            localStorage.setItem('cookieConsent', 'declined');
+            // In practice, you would disable analytics and marketing scripts
+        }
+
+        function showSettings() {
+            // In a full implementation, this would open a detailed settings panel
+            // For now, we'll show an alert with info
+            alert('Cookie Settings:\n\nYou can manage your cookie preferences in your browser settings. For more details, please read our full Cookie Policy.');
+            // You could also scroll to the cookie table or open a modal
+            document.querySelector('.cookies-paper').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Check if consent was previously given
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (consent === 'accepted' || consent === 'declined') {
+                document.getElementById('cookieConsent').style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

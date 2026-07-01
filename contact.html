@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Wilder Spaces</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-deep: #0B331A;
+            --primary-bright: #1E5631;
+            --accent-gold: #D4AF37;
+            --accent-light: #A9DFBF;
+            --text-dark: #2C3E50;
+            --text-light: #F4F6F6;
+            --bg-light: #FAFDFB;
+            --bg-card: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        header {
+            background-color: var(--primary-deep);
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-container h1 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .logo-container span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-bright) 100%);
+            color: var(--text-light);
+            padding: 80px 10% 60px;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-size: 42px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #E2E8F0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        /* --- CONTACT GRID --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .contact-info-panel {
+            background-color: var(--bg-card);
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .contact-info-panel h3 {
+            color: var(--primary-deep);
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-panel p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail .icon {
+            font-size: 24px;
+            min-width: 40px;
+            color: var(--accent-gold);
+        }
+
+        .contact-detail .detail-text {
+            flex: 1;
+        }
+
+        .contact-detail .detail-text strong {
+            display: block;
+            color: var(--primary-deep);
+            font-size: 16px;
+        }
+
+        .contact-detail .detail-text span {
+            color: #5D6D7E;
+            font-size: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-deep);
+            transform: scale(1.05);
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-form-panel {
+            background-color: var(--bg-card);
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+            border-right: 6px solid var(--accent-gold);
+        }
+
+        .contact-form-panel h3 {
+            color: var(--primary-deep);
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form-panel .form-subtitle {
+            color: #7F8C8D;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-deep);
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E8ECEF;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background-color: #FAFDFB;
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--primary-deep);
+            padding: 14px 40px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            animation: pulseGold 2s infinite;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            background-color: #F3CD44;
+        }
+
+        /* --- MAP SECTION --- */
+        .map-section {
+            margin: 40px 0 60px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+            border: 4px solid var(--accent-gold);
+        }
+
+        .map-section iframe {
+            display: block;
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        .map-caption {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-card);
+            color: #7F8C8D;
+            font-style: italic;
+            font-size: 15px;
+        }
+
+        /* --- ADDITIONAL CONTENT --- */
+        .deep-dive-text {
+            background-color: var(--bg-card);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-bright);
+        }
+
+        .deep-dive-text h3 {
+            color: var(--primary-deep);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .deep-dive-text h3:first-child {
+            margin-top: 0;
+        }
+
+        .deep-dive-text p {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .deep-dive-text ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .deep-dive-text li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #F4F9F5;
+            padding: 25px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-gold);
+            margin: 30px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 50px 10%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #7F8C8D;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .container { width: 92%; padding: 30px 0; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+            .contact-info-panel, .contact-form-panel { padding: 30px 20px; }
+            .map-section iframe { height: 300px; }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h2 { font-size: 30px; }
+            .social-links { flex-direction: column; }
+            .social-link { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Wilder<span>Spaces</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Connect With Our Concierge Team</h2>
+        <p>We are here to answer your questions, schedule estate assessments, and discuss how Wilder Spaces can transform your landscape into a living masterpiece.</p>
+    </section>
+
+    <main class="container">
+
+        <!-- CONTACT GRID: Info + Form -->
+        <div class="contact-grid">
+            <!-- Left: Contact Information -->
+            <div class="contact-info-panel">
+                <h3>📍 Get in Touch</h3>
+                <p>Our horticultural specialists and landscape architects are ready to assist you with any inquiry—whether you're a current client, a prospective property owner, or a commercial partner.</p>
+
+                <div class="contact-detail">
+                    <div class="icon">📞</div>
+                    <div class="detail-text">
+                        <strong>Phone</strong>
+                        <span>+1 (555) 839-4537 (1-555-TEX-LAWN)</span>
+                        <span style="display:block; font-size:13px; color:#95A5A6;">Available Mon–Fri, 7:00 AM – 6:00 PM PST</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="icon">✉️</div>
+                    <div class="detail-text">
+                        <strong>Email</strong>
+                        <span>concierge@wilderspaces.domain</span>
+                        <span style="display:block; font-size:13px; color:#95A5A6;">We respond within 2 business hours</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="icon">📍</div>
+                    <div class="detail-text">
+                        <strong>Horticultural Headquarters</strong>
+                        <span>7422 Emerald Ridge Parkway, Suite 100</span>
+                        <span>Vibrant Hills, VH 90210</span>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="icon">🕐</div>
+                    <div class="detail-text">
+                        <strong>Office Hours</strong>
+                        <span>Monday – Friday: 7:00 AM – 6:00 PM</span>
+                        <span>Saturday: 8:00 AM – 2:00 PM (by appointment)</span>
+                        <span>Sunday: Closed</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <p style="font-weight:600; color:var(--primary-deep);">Connect with us on social media:</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">🌿 Instagram</a>
+                        <a href="#" class="social-link">🔗 LinkedIn</a>
+                        <a href="#" class="social-link">📘 Facebook</a>
+                        <a href="#" class="social-link">🐦 X</a>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top:30px;">
+                    <p style="margin:0; font-size:14px;"><strong>📋 Emergency Support:</strong> For urgent landscape issues (e.g., irrigation failure, storm damage), call our 24/7 support line at +1 (555) 839-4537 and press 2.</p>
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="contact-form-panel">
+                <h3>📋 Send a Message</h3>
+                <p class="form-subtitle">Fill out the form below, and a member of our team will reach out to you within one business day.</p>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">I'm Interested In *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Please select...</option>
+                            <option value="residential">Residential Lawn Mowing & Maintenance</option>
+                            <option value="commercial">Commercial Landscape Management</option>
+                            <option value="design">Landscape Architecture & Design</option>
+                            <option value="soil">Soil Bio-Rejuvenation & Aeration</option>
+                            <option value="irrigation">Irrigation & Water Efficiency</option>
+                            <option value="estate">Full Estate Assessment & Consultation</option>
+                            <option value="other">Other / General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyAddress">Property Address (if applicable)</label>
+                        <input type="text" id="propertyAddress" name="propertyAddress" placeholder="123 Green Valley Drive, Vibrant Hills, VH 90210">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your property, your vision, or any specific questions you have..."></textarea>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:25px;">
+                        <label style="font-weight:400; font-size:13px; color:#7F8C8D;">
+                            <input type="checkbox" required style="width:auto; margin-right:8px;">
+                            I agree to the <a href="privacy.html" style="color:var(--accent-gold);">Privacy Policy</a> and <a href="terms.html" style="color:var(--accent-gold);">Terms of Service</a>.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">🚀 Send Inquiry</button>
+                </form>
+
+                <div id="formSuccess" style="display:none; margin-top:20px; padding:15px; background:#E8F5E9; border-radius:8px; color:var(--primary-deep); text-align:center; font-weight:600;">
+                    ✅ Thank you! Your message has been sent. We'll get back to you within 24 hours.
+                </div>
+            </div>
+        </div>
+
+        <!-- MAP SECTION (WORKING GOOGLE MAPS EMBED) -->
+        <div class="map-section">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.5489452734496!2d-118.24368398478287!3d34.05223518060789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Wilder Spaces Headquarters Map">
+            </iframe>
+            <div class="map-caption">
+                📍 <strong>Wilder Spaces Headquarters</strong> — 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210
+            </div>
+        </div>
+
+        <!-- ADDITIONAL DEEP-DIVE CONTENT (1200+ words total) -->
+        <article class="deep-dive-text">
+            <h3>Why Personal Consultation Matters: The Wilder Spaces Difference</h3>
+            <p>At Wilder Spaces, we believe that every landscape tells a unique story—and that story deserves to be heard before any work begins. That's why our contact process is designed not just to collect information, but to initiate a meaningful dialogue about your property's potential. When you reach out to us, you're not just booking a service; you're beginning a partnership with a team of dedicated horticultural scientists, landscape architects, and ecological stewards who are genuinely invested in the health and beauty of your outdoor environment.</p>
+            <p>Our consultation process begins with a deep listening session. We want to understand your vision, your property's history, your challenges, and your aspirations. Whether you're dealing with persistent brown patches, want to reduce water consumption, or dream of a complete landscape transformation, our team uses your input to craft a customized approach that aligns with your goals and budget. We don't believe in one-size-fits-all solutions—every property we manage receives a bespoke treatment plan that respects its unique ecological context.</p>
+
+            <h3>What to Expect When You Contact Us</h3>
+            <p>We've streamlined our communication channels to make it as easy as possible for you to connect with us. Here's what happens when you reach out:</p>
+            <ul>
+                <li><strong>Step 1: Initial Inquiry</strong> — Whether you call, email, or submit our contact form, your inquiry is routed directly to our Concierge Team. We aim to acknowledge all inquiries within 2 hours during business hours.</li>
+                <li><strong>Step 2: Discovery Call</strong> — A dedicated client relations specialist will schedule a brief phone or video call to learn more about your property, your needs, and your timeline. This call typically lasts 15–20 minutes.</li>
+                <li><strong>Step 3: Property Assessment</strong> — If appropriate, we'll schedule an on-site consultation where one of our landscape architects will visit your property to conduct a thorough evaluation, including soil sampling, sun exposure analysis, and existing vegetation assessment.</li>
+                <li><strong>Step 4: Custom Proposal</strong> — Based on our findings and your input, we'll prepare a detailed, transparent proposal that outlines our recommended services, timeline, and investment. We never pressure you to make a decision—we want you to feel fully informed and confident.</li>
+                <li><strong>Step 5: Welcome to the Wilder Spaces Family</strong> — Once you approve the proposal, we'll schedule your first service visit and introduce you to your dedicated account manager. From that point forward, you'll have a direct line to our team for any questions or adjustments.</li>
+            </ul>
+
+            <h3>Frequently Asked Questions About Our Contact Process</h3>
+            <p>We understand that reaching out to a new service provider can come with questions. Here are some of the most common queries we receive:</p>
+            <ul>
+                <li><strong>How quickly do you respond to inquiries?</strong> We aim to respond to all contact form submissions, emails, and phone calls within 2 business hours during our regular office hours. For urgent matters, please call our main number and follow the prompts for emergency support.</li>
+                <li><strong>Do you offer free consultations?</strong> Yes! We provide complimentary, no-obligation initial consultations for all new clients. During this visit, we'll assess your property and provide an overview of our recommended approach.</li>
+                <li><strong>What information should I have ready before contacting you?</strong> It's helpful to have your property address, any known details about your current landscaping (e.g., irrigation type, recent issues), and a general idea of your goals. However, even if you don't have all the details, we're happy to guide you through the process.</li>
+                <li><strong>Can I schedule a service immediately?</strong> In most cases, we can schedule services within 1–2 weeks of your initial consultation, depending on seasonal availability and the scope of work. We prioritize existing clients for recurring services and work to accommodate new clients as quickly as possible.</li>
+                <li><strong>Is there a minimum service commitment?</strong> No. We offer flexible service arrangements, from one-time assessments and projects to comprehensive annual maintenance plans. We tailor our services to fit your specific needs.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>🌱 We're Here to Help:</strong> Whether you're a first-time homeowner looking for lawn care guidance or the manager of a large commercial estate seeking comprehensive landscape solutions, Wilder Spaces is your trusted partner. Our team is passionate about creating and maintaining beautiful, healthy, sustainable landscapes—and we'd be honored to work with you.</p>
+            </div>
+
+            <h3>Sustainable Landscaping: The Future Starts with a Conversation</h3>
+            <p>As environmental concerns become increasingly urgent, the way we approach landscaping is evolving. At Wilder Spaces, we are committed to sustainable practices that conserve resources, protect local ecosystems, and create resilient landscapes that can adapt to changing climate conditions. When you contact us, you're not just getting a lawn mowing service—you're gaining access to a wealth of knowledge about ecological turf management, water conservation, native plant integration, and organic soil rehabilitation.</p>
+            <p>We regularly host workshops and webinars on topics like drought-resistant landscaping, organic fertilization techniques, and the importance of biodiversity in residential and commercial settings. By staying in touch with our community through our newsletter and social media channels, you'll be among the first to know about these educational opportunities. We believe that an informed client is a empowered client, and we're dedicated to sharing our expertise to help you make the best decisions for your property and the planet.</p>
+            <p>Reach out today to start a conversation—not just about your lawn, but about how we can work together to create outdoor spaces that are beautiful, functional, and environmentally responsible. We look forward to hearing from you.</p>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Wilder Spaces LLC</h4>
+                <p>Setting the modern gold standard in residential estate turf engineering, architectural lawn manipulation, and custom ecological land management since 2004.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Information</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horticultural Headquarters</h4>
+                <p><strong>Address:</strong> 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</p>
+                <p><strong>Phone:</strong> +1 (555) 839-4537 (1-555-TEX-LAWN)</p>
+                <p><strong>Email:</strong> concierge@wilderspaces.domain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wilder Spaces LLC. All engineering and architectural rights reserved across domestic boundaries.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Simple validation
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const interest = document.getElementById('interest').value;
+
+            if (!firstName || !lastName || !email || !message || !interest) {
+                alert('Please fill in all required fields (marked with *).');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Show success message
+            document.getElementById('formSuccess').style.display = 'block';
+            document.getElementById('contactForm').reset();
+
+            // Scroll to success message
+            document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // In production, you would send the form data to your server here
+            console.log('Form submitted:', {
+                firstName,
+                lastName,
+                email,
+                phone: document.getElementById('phone').value,
+                interest,
+                propertyAddress: document.getElementById('propertyAddress').value,
+                message
+            });
+
+            // Hide success after 8 seconds
+            setTimeout(() => {
+                document.getElementById('formSuccess').style.display = 'none';
+            }, 8000);
+        }
+    </script>
+
+</body>
+</html>

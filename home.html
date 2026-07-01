@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilder Spaces | Premium Lawn Mowing & Landscape Architecture</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-deep: #0B331A;
+            --primary-bright: #1E5631;
+            --accent-gold: #D4AF37;
+            --accent-light: #A9DFBF;
+            --text-dark: #2C3E50;
+            --text-light: #F4F6F6;
+            --bg-light: #FAFDFB;
+            --bg-card: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* --- KEYFRAMES ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulseGold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        @keyframes floatEffect {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--primary-deep);
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-container h1 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .logo-container span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        /* --- NON-IMAGE HERO BANNER (THEME BASED) --- */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-bright) 100%);
+            color: var(--text-light);
+            padding: 120px 10%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(214,175,55,0.05) 0%, transparent 60%);
+            animation: floatEffect 8s infinite ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #E2E8F0;
+            margin-bottom: 35px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--primary-deep);
+            padding: 15px 35px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: pulseGold 2s infinite;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background-color: #F3CD44;
+        }
+
+        /* --- MAIN WRAPPER & SECTIONS --- */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-deep);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 10px auto 0 auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7F8C8D;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        /* --- IMAGE GRID WITH TEXT (4-5 IMAGES REQ) --- */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .showcase-item {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Using dynamic placeholder images simulating real world execution */
+        .showcase-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        .showcase-text {
+            padding: 25px;
+        }
+
+        .showcase-text h4 {
+            color: var(--primary-deep);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* --- LONG-FORM COMPREHENSIVE TEXT SECTIONS --- */
+        .deep-dive-text {
+            background-color: var(--bg-card);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-bright);
+        }
+
+        .deep-dive-text h3 {
+            color: var(--primary-deep);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .deep-dive-text p {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        /* --- THREE COLUMN METRIC GRID --- */
+        .metrics-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .metric-card {
+            flex: 1;
+            background: linear-gradient(135deg, #FAFDFB 0%, #E8F5E9 100%);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-light);
+        }
+
+        .metric-card h3 {
+            font-size: 40px;
+            color: var(--primary-bright);
+            margin-bottom: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 50px 10%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #7F8C8D;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 968px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .metrics-container {
+                flex-direction: column;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Wilder<span>Spaces</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2>Cultivating Scientific Precision in Luxury Turf Management</h2>
+            <p>Welcome to Wilder Spaces. We bridge the gap between architectural elegance and ecological health. Experience an uncompromising approach to bespoke lawn cutting, soil bio-rejuvenation, and estate management tailored exclusively for discerning environments.</p>
+            <a href="contact.html" class="cta-btn">Book an Estate Assessment</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <h2 class="section-title">The Philosophy of Superior Turfcraft</h2>
+        <p class="section-subtitle">Why regular grass cutting fails where curated biological turf cultivation thrives.</p>
+
+        <article class="deep-dive-text">
+            <h3>1. The Wilder Spaces Manifesto: Redefining Residential and Commercial Greenery</h3>
+            <p>At Wilder Spaces, we do not believe in simply cutting grass. To us, a lawn is a complex, breathing ecosystem that acts as the primary canvas for your property’s architectural structure. For over two decades, our horticultural specialists have challenged the traditional landscape industry by integrating deep biological principles with advanced mechanical engineering. Every single blade of grass represents an active biological unit requiring precision care, balanced moisture dynamics, systemic nutrient accessibility, and perfectly calibrated ambient exposure.</p>
+            <p>When you hire standard mowing operations, you often inherit generic equipment with unsharpened rotary blades that tear down grass tissue rather than neatly slicing it. This creates micro-fissures across your lawn's canopy, leaving the plant body weak, highly vulnerable to fungal blight, and susceptible to severe environmental stressors like heavy drought or sudden temperature drops. Our team operates exclusively with hyper-calibrated, industrial-grade cylinder equipment and dynamically balanced rotary decks that execute precise shearing cuts. This guarantees swift tissue cellular healing, optimizes photosynthetic operational efficiency, and creates that rich, velvet-like optical finish seen across luxury golf greens and historic estates worldwide.</p>
+            <p>Furthermore, our approach considers the underlying soil structural grid. Heavy industrial machinery used carelessly by uncertified technicians causes massive subsoil structural compaction. This chokes out vital subterranean oxygen reserves, effectively killing off beneficial earthworm networks and symbiotic microbial colonies. Wilder Spaces relies on micro-weight, multi-point weight distribution tracks and customized mowing patterns. We alternate directions systematically on every single visit to completely eliminate physical rutting and promote a healthy vertical root architecture that can tap into deep, resilient groundwater reserves.</p>
+        </article>
+
+        <h2 class="section-title">Our Operational Disciplines</h2>
+        <p class="section-subtitle">A visual look into the comprehensive precision systems deployed across our properties.</p>
+
+        <section class="showcase-grid">
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?auto=format&fit=crop&q=80&w=800" alt="Precision Lawn Mowing" class="showcase-img">
+                <div class="showcase-text">
+                    <h4>Precision Cylindrical Mowing</h4>
+                    <p>Executing clean, micro-millimeter shearing cuts that minimize cellular plant trauma and maximize chlorophyll production pathways.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1622624583624-72e63171447c?auto=format&fit=crop&q=80&w=800" alt="Lawn Edging and Architecture" class="showcase-img">
+                <div class="showcase-text">
+                    <h4>Architectural Spatial Edging</h4>
+                    <p>Creating hard, geometric lines that visually isolate your ornamental turf structures from driveway surfaces and delicate horticultural beds.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&q=80&w=800" alt="Soil Aeration and Core Vitalization" class="showcase-img">
+                <div class="showcase-text">
+                    <h4>Subsoil Deep Core Aeration</h4>
+                    <p>Extracting compacted plugs to introduce oxygen, organic macro-nutrients, and moisture directly to hungry root zones.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?auto=format&fit=crop&q=80&w=800" alt="Nutrient Application Control" class="showcase-img">
+                <div class="showcase-text">
+                    <h4>Organic Biomass Balancing</h4>
+                    <p>Custom-blended slow-release organic micro-nutrients formulated explicitly from raw comprehensive soil chemistry tests.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="metrics-container">
+            <div class="metric-card">
+                <h3>99.4%</h3>
+                <p>Client Retention Rate Across Premium Residential Estates</p>
+            </div>
+            <div class="metric-card">
+                <h3>0%</h3>
+                <p>Synthetic Chemical Overhead – Fully Ecological & Pet Safe</p>
+            </div>
+            <div class="metric-card">
+                <h3>24hr</h3>
+                <p>Guaranteed Operational Support for Property Managers</p>
+            </div>
+        </div>
+
+        <article class="deep-dive-text">
+            <h3>2. Micro-Nutrient Systems & Soil Chemistry Integration</h3>
+            <p>Every pristine ecosystem begins well beneath the visible surface. Many property owners buy expensive retail fertilizers hoping to patch brown spots or quicken growth, only to unintentionally pollute local groundwater tables and build up toxic heavy salts within the upper topsoil. This excessive synthetic salt buildup fundamentally burns fragile root tips, disrupts the soil's natural pH equilibrium, and turns your land into a chemical-dependent entity incapable of natural pest resistance.</p>
+            <p>At Wilder Spaces, we start every lawn maintenance program with full-spectrum laboratory soil testing. We extract plug samples from multiple spots across your property to map out the exact baseline of nitrogen, phosphorus, potassium, calcium, magnesium, and organic bio-matter percentages. Based on this complex data array, we custom-engineer an organic, slow-release bio-nutrient fluid applied accurately during seasonal cutting cycles. By nourishing the soil microbes rather than dumping raw chemicals onto the plants, we build up a robust biological matrix that naturally naturally fights off invasive weeds, fungal patch disease, and harmful subterranean insects without risking the health of your pets, family, or local wildlife.</p>
+            <h3>3. Modern Seasonal Management Methodologies</h3>
+            <p>Turf care changes dramatically with the seasons, requiring a fluid, expert approach to handle shifting weather patterns. In early spring, our primary focus is awakening the dormant root network. We use gentle, non-destructive de-thatching techniques to pull up dead organic matter, followed by an application of cold-pressed liquid sea humates to jumpstart early cellular dividing cycles. As your lawn enters peak summer heat, we carefully adjust our cutting decks higher to increase the blade length. Leaving the grass slightly taller provides crucial natural shade over the soil, lowering surface evaporation by up to 35% and preventing the root core from overheating.</p>
+            <p>When autumn transitions your property toward winter, our strategy shifts entirely to building up deep root strength and carbohydrate storage. We lower mowing heights incrementally to stop long blades from matting down under heavy winter snows—a major cause of destructive snow mold outbreaks. We combine this with deep fall core aeration and a rich organic top-dressing that fills your soil with beneficial microbes. This guarantees that when spring arrives, your lawn wakes up vibrant, dense, and evenly green ahead of schedule, with no need for heavy chemical interventions.</p>
+        </article>
+
+        <div style="margin: 40px 0; text-align: center;">
+            <img src="https://images.unsplash.com/photo-1742415106160-594d07f6cc23?auto=format&fit=crop&q=80&w=1200" alt="Estate Presentation Layout" style="width:100%; max-height:400px; object-fit:cover; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <p style="font-style:italic; color:#7F8C8D; margin-top:10px;">Exhibit 5: Large-scale estate canvas showcasing multi-directional pristine cutting stripes and complete edge integration.</p>
+        </div>
+
+        <article class="deep-dive-text">
+            <h3>4. Advanced Water Efficiency and Hydro-Zoning Integration</h3>
+            <p>With global weather patterns becoming increasingly unpredictable and water conservation becoming a critical civic duty, managing irrigation efficiently is no longer optional. A lawn managed incorrectly requires constant watering just to survive, wasting thousands of gallons of municipal water. Wilder Spaces integrates smart hydro-zoning strategies with your regular mowing routine. By evaluating the natural contour lines, slope angles, and daily sun exposure patterns across your property, we establish localized micro-watering zones.</p>
+            <p>We work seamlessly with your existing automated sprinkler systems, retrofitting outdated spray nozzles with smart, high-efficiency rotary streams that deliver water at a steady pace the soil can actually absorb. We also install smart, internet-connected soil moisture sensors deep within your lawn's root zones. These sensors continuously monitor real-time water levels and automatically pause irrigation cycles when rain is forecast or when the soil is already perfectly hydrated. This precise management strategy keeps your grass consistently healthy, prevents waterlogged soil diseases, and typically cuts overall outdoor water use by 40% to 60%.</p>
+            <h3>5. The Real Economics of Long-Term Ecological Care</h3>
+            <p>Many property managers look at landscaping purely as an ongoing, short-term expense. But investing in elite-level turf care is actually a smart strategy that preserves and builds real property value. A patchy, neglected lawn can drag down a luxury home's curb appeal, while an expertly manicured, rich green landscape can instantly boost overall property valuations. Furthermore, choosing cheap, uncertified lawn care often leads to expensive problems down the road—like extensive weed overgrowth, dead patches from disease, or ruined soil that requires total, costly restoration.</p>
+            <p>By partnering with Wilder Spaces, you protect your long-term landscape investment. Our preventive maintenance plans catch potential pest and weed issues weeks before they become visible to the naked eye. Because we naturally build up the soil's organic resilience, your estate becomes much more self-sustaining over time. This drastically reduces the need for expensive, emergency chemical fixes or complete lawn replacement down the line. Our detailed, written service logs and clear, open communication ensure you always know exactly how your landscape is progressing, giving you complete peace of mind that your outdoor investment is in the best possible hands.</p>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Wilder Spaces LLC</h4>
+                <p>Setting the modern gold standard in residential estate turf engineering, architectural lawn manipulation, and custom ecological land management since 2004.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Information</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horticultural Headquarters</h4>
+                <p><strong>Address:</strong> 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</p>
+                <p><strong>Phone:</strong> +1 (555) 839-4537 (1-555-TEX-LAWN)</p>
+                <p><strong>Email:</strong> concierge@wilderspaces.domain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wilder Spaces LLC. All engineering and architectural rights reserved across domestic boundaries.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Wilder Spaces</title>
+    <style>
+        /* --- RESET & VARIABLES (consistent with home/privacy) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-deep: #0B331A;
+            --primary-bright: #1E5631;
+            --accent-gold: #D4AF37;
+            --accent-light: #A9DFBF;
+            --text-dark: #2C3E50;
+            --text-light: #F4F6F6;
+            --bg-light: #FAFDFB;
+            --bg-card: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background-color: var(--primary-deep);
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-container h1 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .logo-container span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-bright) 100%);
+            color: var(--text-light);
+            padding: 80px 10% 60px;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-size: 42px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #E2E8F0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .terms-paper {
+            background-color: var(--bg-card);
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .terms-paper h3 {
+            color: var(--primary-deep);
+            font-size: 24px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #E8ECEF;
+            padding-bottom: 8px;
+        }
+
+        .terms-paper h4 {
+            color: var(--primary-bright);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .terms-paper p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #2C3E50;
+        }
+
+        .terms-paper ul, .terms-paper ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .terms-paper li {
+            margin-bottom: 8px;
+        }
+
+        .terms-paper strong {
+            color: var(--primary-deep);
+        }
+
+        .highlight-box {
+            background: #F4F9F5;
+            padding: 25px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-gold);
+            margin: 30px 0;
+        }
+
+        .footer-meta {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #DFE6E9;
+            font-size: 14px;
+            color: #7F8C8D;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-deep);
+            color: var(--text-light);
+            padding: 50px 10%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #BDC3C7;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            color: #7F8C8D;
+        }
+
+        @media (max-width: 968px) {
+            .container { width: 92%; padding: 30px 0; }
+            .terms-paper { padding: 30px 20px; }
+            .footer-content { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Wilder<span>Spaces</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="cookies.html">Cookies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Terms of Service</h2>
+        <p>Our commitment to excellence extends to the legal framework governing our relationship. Please read these terms carefully before engaging our services.</p>
+    </section>
+
+    <main class="container">
+        <div class="terms-paper">
+            <h3>1. Acceptance of Terms</h3>
+            <p>Welcome to Wilder Spaces LLC ("Wilder Spaces," "we," "us," or "our"). These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and Wilder Spaces regarding your use of our website, digital platforms, and the professional landscape architecture, turf management, and horticultural services we provide (collectively, the "Services"). By accessing our website, booking a consultation, or engaging our Services in any manner, you acknowledge that you have read, understood, and agree to be bound by these Terms, including any additional policies referenced herein, such as our Privacy Policy and Cookie Policy.</p>
+            <p>If you do not agree with any part of these Terms, you must refrain from using our website and Services. We reserve the right to update or modify these Terms at any time without prior notice. Changes become effective immediately upon posting on this page. Your continued use of our Services after any such modifications constitutes your acceptance of the revised Terms. It is your responsibility to review these Terms periodically. The latest version will always be available on our website, and the effective date will be indicated at the bottom.</p>
+
+            <h3>2. Services Overview and Scope</h3>
+            <p>Wilder Spaces offers a comprehensive suite of premium lawn mowing, ecological turf management, soil bio-rejuvenation, landscape architecture, and estate maintenance services. Our Services are tailored to the unique characteristics of each property, based on our professional assessments, soil chemistry analysis, and your specific objectives. While we strive to deliver exceptional results, the outcomes of our Services depend on numerous factors, including environmental conditions, client cooperation, and the inherent characteristics of the landscape.</p>
+            <p>We provide the following categories of Services (non-exhaustive):</p>
+            <ul>
+                <li><strong>Precision Turf Mowing:</strong> Using calibrated cylinder and rotary equipment to execute clean, shearing cuts that promote optimal turf health and aesthetic appeal.</li>
+                <li><strong>Soil Diagnostics and Bio-Nutrient Programs:</strong> Laboratory-based soil testing and custom-formulated organic fertilization plans to restore and maintain soil vitality.</li>
+                <li><strong>Aeration and De-Thatching:</strong> Mechanical core aeration and organic matter removal to alleviate compaction and enhance root development.</li>
+                <li><strong>Architectural Landscape Design:</strong> Spatial edging, planting design, hardscape integration, and comprehensive estate planning.</li>
+                <li><strong>Irrigation Management:</strong> Hydro-zoning, smart sensor installation, and water efficiency optimization.</li>
+                <li><strong>Seasonal Maintenance Programs:</strong> Year-round care plans that adapt to the changing needs of your landscape through spring, summer, autumn, and winter.</li>
+            </ul>
+            <p>All Services are provided subject to the terms of a separate Service Agreement or Work Order that outlines the specific scope, schedule, fees, and deliverables for your project. In the event of any conflict between these Terms and your Service Agreement, the Service Agreement shall prevail.</p>
+
+            <h3>3. Client Responsibilities and Obligations</h3>
+            <p>To enable us to deliver the highest quality Services, you agree to fulfill the following responsibilities:</p>
+            <ul>
+                <li><strong>Access and Site Preparation:</strong> You must provide our team with safe, unobstructed access to your property during scheduled service times. This includes ensuring gates are unlocked, pets are secured, and any obstacles (e.g., debris, vehicles, or outdoor furniture) are removed from the work areas.</li>
+                <li><strong>Accurate Information:</strong> You agree to provide complete and accurate information regarding your property's dimensions, existing conditions, irrigation systems, and any known hazards (e.g., underground utilities, septic systems, or protected species).</li>
+                <li><strong>Utility Marking:</strong> For any excavation or deep aeration work, you are responsible for contacting the appropriate utility marking services (e.g., 811 in the United States) to locate underground lines prior to our arrival. We reserve the right to delay or cancel services if utility markings are not in place.</li>
+                <li><strong>Communication:</strong> You must promptly notify us of any changes to your property, service requirements, or scheduling constraints. We rely on your timely communication to optimize our operations.</li>
+                <li><strong>Payment:</strong> You agree to pay all fees and charges associated with the Services in a timely manner as outlined in your Service Agreement or invoice.</li>
+            </ul>
+            <p>Failure to meet these responsibilities may result in service delays, additional charges, or termination of the Service Agreement. We will make reasonable efforts to notify you of any issues and work collaboratively to resolve them.</p>
+
+            <h3>4. Fees, Payment Terms, and Billing</h3>
+            <p>Our fees are structured to reflect the premium quality of our Services, the expertise of our team, and the customized nature of each engagement. The specific fees applicable to your project will be detailed in your Service Agreement or Work Order.</p>
+
+            <h4>4.1 Pricing and Estimates</h4>
+            <p>All initial estimates and quotes are provided based on the information you supply and our preliminary assessment. Final pricing may be adjusted if the actual scope of work, site conditions, or time requirements differ materially from the initial estimate. We will notify you of any changes before proceeding with additional work.</p>
+
+            <h4>4.2 Invoicing and Payment</h4>
+            <p>We issue invoices on a monthly, per-service, or project-completion basis, as specified in your Service Agreement. Payment is due within fifteen (15) days of the invoice date unless otherwise agreed. We accept payments via bank transfer, credit card, or check. Late payments may incur interest at a rate of 1.5% per month or the maximum legal rate, whichever is lower.</p>
+
+            <h4>4.3 Deposits and Retainers</h4>
+            <p>For large-scale projects or annual maintenance plans, we may require a deposit or retainer upfront. These payments are non-refundable except as expressly provided in your Service Agreement.</p>
+
+            <h4>4.4 Disputes and Billing Inquiries</h4>
+            <p>If you believe an invoice is incorrect, you must contact our billing department within seven (7) days of the invoice date. We will investigate and respond promptly. Failure to raise a dispute within this timeframe constitutes your acceptance of the invoice as correct.</p>
+
+            <div class="highlight-box">
+                <p><strong>Transparency Commitment:</strong> Wilder Spaces is committed to transparent billing practices. All fees, taxes, and surcharges are clearly itemized on every invoice. If you have any questions about your charges, please contact our Concierge Team at +1 (555) 839-4537.</p>
+            </div>
+
+            <h3>5. Cancellations, Rescheduling, and Refunds</h3>
+            <p>We understand that unforeseen circumstances may arise. Our cancellation and rescheduling policies are designed to be fair while protecting our operational efficiency.</p>
+
+            <h4>5.1 Cancellations by Client</h4>
+            <p>You may cancel a scheduled service without penalty by providing at least twenty-four (24) hours' notice. Cancellations made with less than 24 hours' notice may incur a cancellation fee of up to 50% of the scheduled service fee. For recurring maintenance plans, we require a minimum of seven (7) days' written notice to terminate the agreement without further obligation.</p>
+
+            <h4>5.2 Rescheduling by Client</h4>
+            <p>We will make every reasonable effort to accommodate rescheduling requests. Rescheduling with less than 24 hours' notice may be subject to availability and a rescheduling fee.</p>
+
+            <h4>5.3 Cancellations by Wilder Spaces</h4>
+            <p>We reserve the right to cancel or reschedule Services due to weather conditions, safety concerns, equipment failure, or other circumstances beyond our reasonable control. In such cases, we will work with you to find a mutually agreeable alternative date, and no cancellation fees will apply.</p>
+
+            <h4>5.4 Refund Policy</h4>
+            <p>Our Services are performed to the highest standards, and we take your satisfaction seriously. If you are not satisfied with any aspect of our work, please contact us within seven (7) days of the service date. We will inspect the work and, at our discretion, re-perform the service at no charge or issue a prorated refund for the affected portion. Refunds are not provided for services already rendered to your satisfaction or for third-party costs incurred on your behalf.</p>
+
+            <h3>6. Intellectual Property Rights</h3>
+            <p>All content on our website, including text, graphics, logos, images, video, audio, and software, is the exclusive property of Wilder Spaces or its licensors and is protected by United States and international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, transmit, or commercially exploit any content without our prior written consent.</p>
+            <p>Any original landscape designs, architectural plans, soil reports, and custom formulations created by Wilder Spaces in the course of providing Services remain our intellectual property. We grant you a limited, non-exclusive, non-transferable license to use these deliverables solely for the purpose of maintaining your property. You may not share, sell, or use these deliverables for any other project without our explicit written permission.</p>
+
+            <h3>7. Limitation of Liability and Disclaimer of Warranties</h3>
+            <p>Wilder Spaces provides Services "as is" and "as available," with all faults, and without warranties of any kind, whether express, implied, statutory, or otherwise. To the fullest extent permitted by law, we disclaim all implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</p>
+            <p>We do not warrant that our Services will be uninterrupted, error-free, or that any results or outcomes will meet your expectations. While we employ best practices in turf management and landscape architecture, the inherent variability of natural systems means that we cannot guarantee the precise growth, color, or health of your lawn under all conditions.</p>
+
+            <h4>7.1 Limitation of Liability</h4>
+            <p>To the maximum extent permitted by law, in no event shall Wilder Spaces, its directors, officers, employees, affiliates, or agents be liable to you or any third party for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, loss of data, property damage, or personal injury arising out of or in connection with the use of our Services, even if we have been advised of the possibility of such damages.</p>
+            <p>Our total cumulative liability to you for any and all claims arising from or related to these Terms or the Services, whether in contract, tort, or otherwise, shall not exceed the total amount of fees paid by you to Wilder Spaces during the twelve (12) months immediately preceding the event giving rise to the claim.</p>
+
+            <h4>7.2 Force Majeure</h4>
+            <p>We shall not be liable for any failure or delay in performing our obligations under these Terms due to causes beyond our reasonable control, including but not limited to acts of God, war, terrorism, natural disasters, strikes, labor disputes, government regulations, pandemics, or interruptions in utility or communication services.</p>
+
+            <h3>8. Indemnification</h3>
+            <p>You agree to indemnify, defend, and hold harmless Wilder Spaces and its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or related to:</p>
+            <ul>
+                <li>Your breach of these Terms or your Service Agreement;</li>
+                <li>Your violation of any applicable law or regulation;</li>
+                <li>Your misuse of our Services or website;</li>
+                <li>Any third-party claims arising from your property's condition or your interactions with our team;</li>
+                <li>Your failure to disclose known hazards or property conditions.</li>
+            </ul>
+
+            <h3>9. Insurance and Risk Management</h3>
+            <p>Wilder Spaces maintains comprehensive commercial general liability insurance and workers' compensation coverage to protect our team and your property. A certificate of insurance is available upon request. However, you are responsible for maintaining adequate property insurance for your estate and its contents. We recommend that you inform your insurer of our presence on your property and ensure that your coverage is sufficient for any potential loss.</p>
+
+            <h3>10. Confidentiality and Data Privacy</h3>
+            <p>We respect your privacy and are committed to protecting your personal and property information. Our data handling practices are outlined in detail in our Privacy Policy. By using our Services, you acknowledge and consent to our collection, use, and disclosure of your information as described therein.</p>
+            <p>Both parties agree to keep confidential any proprietary or sensitive information exchanged during the course of our engagement, including but not limited to trade secrets, business strategies, property layouts, financial information, and client lists. This confidentiality obligation shall survive the termination of these Terms.</p>
+
+            <h3>11. Governing Law and Dispute Resolution</h3>
+            <p>These Terms and your relationship with Wilder Spaces shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles. Any legal action or proceeding arising out of or relating to these Terms or the Services shall be instituted exclusively in the state or federal courts located in Los Angeles County, California.</p>
+
+            <h4>11.1 Mandatory Arbitration</h4>
+            <p>In the interest of resolving disputes efficiently and cost-effectively, you and Wilder Spaces agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Services shall be resolved exclusively through binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Commercial Arbitration Rules. The arbitration shall be conducted in Los Angeles County, California, before a single arbitrator. The arbitrator's decision shall be final and binding, and judgment upon the award may be entered in any court having jurisdiction.</p>
+            <p>Notwithstanding the foregoing, either party may seek equitable relief, including injunctive or declaratory relief, in any court of competent jurisdiction without waiving the right to arbitration of any other claims.</p>
+
+            <h4>11.2 Class Action Waiver</h4>
+            <p>To the fullest extent permitted by law, you agree that any dispute or claim arising from these Terms or the Services shall be brought in your individual capacity and not as a class action, representative action, or consolidated action. You expressly waive the right to participate in any class, collective, or representative proceeding against Wilder Spaces.</p>
+
+            <h3>12. Termination and Suspension of Services</h3>
+            <p>We reserve the right to terminate or suspend your access to our Services, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms or your Service Agreement. Upon termination, your right to use the Services will immediately cease. We may also terminate the relationship for any reason by providing written notice thirty (30) days in advance.</p>
+            <p>You may terminate your Service Agreement by providing written notice as specified in your agreement. Upon termination, you are responsible for all fees incurred up to the effective date of termination.</p>
+
+            <h3>13. Entire Agreement and Severability</h3>
+            <p>These Terms, together with your Service Agreement and any other policies referenced herein, constitute the entire agreement between you and Wilder Spaces regarding your use of our Services and supersede all prior or contemporaneous communications, whether oral or written. If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect.</p>
+
+            <h3>14. Waiver</h3>
+            <p>No waiver by Wilder Spaces of any term or condition set forth in these Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition. Any failure to enforce a provision of these Terms shall not constitute a waiver of our right to enforce that provision in the future.</p>
+
+            <h3>15. Contact Information</h3>
+            <p>If you have any questions, concerns, or requests regarding these Terms, please contact us through the following channels:</p>
+            <ul>
+                <li><strong>Email:</strong> legal@wilderspaces.domain</li>
+                <li><strong>Phone:</strong> +1 (555) 839-4537</li>
+                <li><strong>Mail:</strong> Wilder Spaces LLC, Attn: Legal Department, 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</li>
+            </ul>
+            <p>We strive to respond to all inquiries within two (2) business days.</p>
+
+            <div class="highlight-box">
+                <p><strong>Important Notice:</strong> These Terms of Service are designed to protect both Wilder Spaces and our valued clients. We believe in fair, transparent business practices, and we are always available to discuss any aspect of this agreement with you. Your satisfaction and trust are paramount to our success.</p>
+            </div>
+
+            <div class="footer-meta">
+                <p><strong>Effective Date:</strong> June 26, 2026. <strong>Version:</strong> 2.1.</p>
+                <p>These Terms of Service are subject to change at any time. Please check this page regularly for updates.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER (with address and phone) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Wilder Spaces LLC</h4>
+                <p>Setting the modern gold standard in residential estate turf engineering, architectural lawn manipulation, and custom ecological land management since 2004.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Information</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Horticultural Headquarters</h4>
+                <p><strong>Address:</strong> 7422 Emerald Ridge Parkway, Suite 100, Vibrant Hills, VH 90210</p>
+                <p><strong>Phone:</strong> +1 (555) 839-4537 (1-555-TEX-LAWN)</p>
+                <p><strong>Email:</strong> concierge@wilderspaces.domain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wilder Spaces LLC. All engineering and architectural rights reserved across domestic boundaries.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
